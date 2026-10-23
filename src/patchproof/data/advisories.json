@@ -1,0 +1,30 @@
+{
+  "dataset_date": "2026-10-21",
+  "cves": ["CVE-2026-109618", "CVE-2026-109619"],
+  "upstream": {
+    "8.2": "8.2.35",
+    "8.3": "8.3.36",
+    "8.4": "8.4.27",
+    "8.5": "8.5.12"
+  },
+  "ubuntu": {
+    "26.10": {"branch": "8.5", "minimum": "8.5.9-0ubuntu2.1", "advisory": "https://ubuntu.com/security/notices/USN-8948-1", "support": "standard"},
+    "26.04": {"branch": "8.5", "minimum": "8.5.4-0ubuntu1.5", "advisory": "https://ubuntu.com/security/notices/USN-8948-1", "support": "standard"},
+    "24.04": {"branch": "8.3", "minimum": "8.3.6-0ubuntu0.24.04.13", "advisory": "https://ubuntu.com/security/notices/USN-8948-1", "support": "standard"},
+    "22.04": {"branch": "8.1", "minimum": "8.1.2-1ubuntu2.28", "advisory": "https://ubuntu.com/security/notices/USN-8948-1", "support": "standard"},
+    "20.04": {"branch": "7.4", "minimum": "7.4.3-4ubuntu2.29+esm5", "advisory": "https://ubuntu.com/security/notices/USN-8948-2", "support": "Ubuntu Pro/ESM"},
+    "18.04": {"branch": "7.2", "minimum": "7.2.24-0ubuntu0.18.04.17+esm14", "advisory": "https://ubuntu.com/security/notices/USN-8948-2", "support": "Ubuntu Pro/ESM"},
+    "16.04": {"branch": "7.0", "minimum": "7.0.33-0ubuntu0.16.04.16+esm22", "advisory": "https://ubuntu.com/security/notices/USN-8948-2", "support": "Ubuntu Pro/ESM"},
+    "14.04": {"branch": "5.5", "minimum": "5.5.9+dfsg-1ubuntu4.29+esm18", "advisory": "https://ubuntu.com/security/notices/USN-8948-2", "support": "Ubuntu Pro/ESM"}
+  },
+  "references": [
+    "https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w",
+    "https://github.com/php/php-src/security/advisories/GHSA-6wmf-4rv5-p3rp",
+    "https://www.php.net/releases/8_5_12.php",
+    "https://www.php.net/releases/8_4_27.php",
+    "https://www.php.net/releases/8_3_36.php",
+    "https://www.php.net/releases/8_2_35.php",
+    "https://ubuntu.com/security/notices/USN-8948-1",
+    "https://ubuntu.com/security/notices/USN-8948-2"
+  ]
+}

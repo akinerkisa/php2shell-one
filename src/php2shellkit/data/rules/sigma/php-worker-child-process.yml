@@ -1,0 +1,39 @@
+title: Unexpected Child Process of PHP Web Worker (PHP2Shell Investigation)
+id: 9a4f6ad7-cbea-42ba-a7d7-dad8b727c5b0
+status: experimental
+description: Detects command interpreters or download utilities launched by PHP workers; generic RCE post-exploitation indicator, not PHP2Shell-specific.
+author: PHP2Shell One
+references:
+  - https://www.elastic.co/security-labs/threat-command/php2shell-php-rce-detection
+  - https://github.com/php/php-src/security/advisories/GHSA-6wmf-4rv5-p3rp
+logsource:
+  category: process_creation
+  product: linux
+detection:
+  selection_parent:
+    ParentImage|endswith:
+      - '/php-fpm'
+      - '/php-fpm8.2'
+      - '/php-fpm8.3'
+      - '/php-fpm8.4'
+      - '/php-fpm8.5'
+      - '/apache2'
+      - '/httpd'
+      - '/php-cgi'
+      - '/lsphp'
+  selection_child:
+    Image|endswith:
+      - '/sh'
+      - '/bash'
+      - '/dash'
+      - '/curl'
+      - '/wget'
+      - '/nc'
+      - '/python3'
+  condition: selection_parent and selection_child
+falsepositives:
+  - Legitimate application maintenance, PDF/image processing or automation tasks
+level: medium
+tags:
+  - attack.execution
+  - attack.t1059

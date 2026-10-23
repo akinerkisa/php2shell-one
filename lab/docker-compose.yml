@@ -1,0 +1,24 @@
+# Synthetic, non-exploit lab. Explicitly patched upstream tag; always verify digest.
+services:
+  web:
+    image: php:8.3.36-cli
+    read_only: true
+    user: "33:33"
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=16m
+    working_dir: /app
+    command: ["php", "-S", "0.0.0.0:8080", "-t", "/app"]
+    volumes:
+      - ./public:/app:ro
+    ports:
+      - "127.0.0.1:8080:8080"
+    networks:
+      - sealed
+    mem_limit: 256m
+networks:
+  sealed:
+    internal: true

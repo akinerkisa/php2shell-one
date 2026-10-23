@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "php2shell-one"
+version = "0.1.0"
+description = "One focused PHP2Shell toolkit for verification, hunting, audit, hardening and isolated proof readiness"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {file = "LICENSE"}
+authors = [{name = "PHP2Shell One Contributors"}]
+keywords = ["php2shell", "CVE-2026-109618", "CVE-2026-109619", "defense", "DFIR"]
+classifiers = ["Programming Language :: Python :: 3", "Operating System :: OS Independent", "Topic :: Security"]
+dependencies = []
+
+[project.scripts]
+php2shell = "php2shellkit.cli:main"
+php2shell-one = "php2shellkit.cli:main"
+patchproof = "patchproof.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+patchproof = ["data/*.json"]
+php2shellkit = ["data/*.json", "data/rules/modsecurity/*.conf", "data/rules/nginx/*.conf", "data/rules/sigma/*.yml"]

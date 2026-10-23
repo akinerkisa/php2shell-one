@@ -1,0 +1,7 @@
+192.0.2.10 - - [21/Oct/2026:12:01:02 +0000] "GET /index.php HTTP/1.1" 200 1080 "-" "Mozilla/5.0"
+192.0.2.20 - - [21/Oct/2026:12:02:10 +0000] "POST /upload.php HTTP/1.1" 500 300 "-" "Lab-client"
+192.0.2.20 - - [21/Oct/2026:12:02:11 +0000] "POST /upload.php HTTP/1.1" 500 300 "-" "Lab-client"
+192.0.2.20 - - [21/Oct/2026:12:02:12 +0000] "POST /upload.php HTTP/1.1" 500 300 "-" "Lab-client"
+192.0.2.20 - - [21/Oct/2026:12:02:13 +0000] "POST /upload.php HTTP/1.1" 500 300 "-" "Lab-client"
+192.0.2.20 - - [21/Oct/2026:12:02:14 +0000] "POST /upload.php HTTP/1.1" 500 300 "-" "Lab-client"
+192.0.2.44 - - [21/Oct/2026:12:02:15 +0000] "POST /index.php?PHP_SESSION_UPLOAD_PROGRESS=marker HTTP/1.1" 400 300 "-" "Lab-client"

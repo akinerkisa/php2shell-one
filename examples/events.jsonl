@@ -1,0 +1,2 @@
+{"@timestamp":"2026-10-21T12:03:00Z","process":{"name":"sh","parent":{"name":"php-fpm8.3"}}}
+{"@timestamp":"2026-10-21T12:04:00Z","process":{"name":"php-fpm8.3","parent":{"name":"systemd"}}}

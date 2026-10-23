@@ -1,0 +1,96 @@
+{
+  "command": "assess",
+  "cves": [
+    "CVE-2026-109618",
+    "CVE-2026-109619"
+  ],
+  "findings": [
+    {
+      "evidence": "php:8.3.36-cli",
+      "line": 4,
+      "message": "PHP image tag 8.3.36-cli meets upstream threshold; tag alone does not prove deployed runtime safety",
+      "rule_id": "PHP_TAG_FIXED_CLAIM",
+      "severity": "info",
+      "source": "docker-compose.yml"
+    },
+    {
+      "evidence": "session.upload_progress.enabled=On",
+      "line": 4,
+      "message": "Session upload progress enabled; disabling is a partial mitigation, not a patch",
+      "rule_id": "SESSION_PROGRESS_CONFIG",
+      "severity": "low",
+      "source": "examples/php.ini"
+    },
+    {
+      "evidence": "memory_limit=128M",
+      "line": 2,
+      "message": "Finite PHP memory limit observed; PHP project describes administrative -1 as a partial mitigation",
+      "rule_id": "MEMORY_LIMIT_CONFIG",
+      "severity": "info",
+      "source": "examples/php.ini"
+    },
+    {
+      "evidence": "/upload.php",
+      "line": 6,
+      "message": "5 POST 5xx responses from client-2d459f9e8eb3 on one path",
+      "rule_id": "POST_5XX_BURST",
+      "severity": "low",
+      "source": "examples/access.log"
+    },
+    {
+      "evidence": "/index.php",
+      "line": 7,
+      "message": "Session progress marker visible in logged metadata: client-1a17a4b9dec7",
+      "rule_id": "SESSION_PROGRESS_PROBE",
+      "severity": "medium",
+      "source": "examples/access.log"
+    },
+    {
+      "evidence": "",
+      "line": 1,
+      "message": "PHP/server OOM-like diagnostic; correlate with HTTP activity",
+      "rule_id": "PHP_OOM",
+      "severity": "medium",
+      "source": "examples/error.log"
+    },
+    {
+      "evidence": "",
+      "line": 2,
+      "message": "Possible web/PHP worker crash; inspect worker lifecycle",
+      "rule_id": "WORKER_CRASH",
+      "severity": "medium",
+      "source": "examples/error.log"
+    },
+    {
+      "evidence": "",
+      "line": 1,
+      "message": "Web/PHP process spawned a utility: php-fpm8.3 -> sh; investigate context",
+      "rule_id": "PHP_CHILD_PROCESS",
+      "severity": "medium",
+      "source": "examples/events.jsonl"
+    }
+  ],
+  "generated_at": "2026-10-22T07:37:19+00:00",
+  "limitations": [
+    "Static Dockerfile/Compose review only; no image was pulled, built or executed.",
+    "An image tag alone is not proof of the PHP version deployed or vendor backport state.",
+    "Custom PHP builds, templating, ARG-based references and external image dependencies require manual inventory.",
+    "Configuration files may not be loaded by the active PHP SAPI or may be overridden.",
+    "No php.ini configuration completely mitigates PHP2Shell. Update runtime and restart workers.",
+    "These observations are informational and do not establish vulnerability or safety.",
+    "Scanned 11 lines; no exploit payloads or HTTP requests were generated.",
+    "Heuristic matches are triage signals, never proof of PHP2Shell compromise.",
+    "Default client identifiers are hashed; queries, cookies, POST bodies and raw error lines are not exported.",
+    "Content within multipart POST bodies is usually absent from standard access logs.",
+    "Combined findings are separate evidence streams. Correlation and remediation are human decisions."
+  ],
+  "schema_version": "0.2",
+  "summary": {
+    "high": 0,
+    "info": 2,
+    "low": 2,
+    "medium": 4,
+    "total": 8
+  },
+  "tool": "php2shell-one"
+}

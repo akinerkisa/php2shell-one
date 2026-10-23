@@ -1,0 +1,46 @@
+{
+  "schema_version": "0.1",
+  "tool": "php2shell-patchproof",
+  "mode": "synthetic-example",
+  "cves": [
+    "CVE-2026-109618",
+    "CVE-2026-109619"
+  ],
+  "dataset_date": "2026-10-21",
+  "ubuntu_version": "24.04",
+  "packages": [
+    {
+      "name": "php8.3-fpm",
+      "version": "8.3.6-0ubuntu0.24.04.13",
+      "assessment": {
+        "threshold": "8.3.6-0ubuntu0.24.04.13",
+        "reference": "https://ubuntu.com/security/notices/USN-8948-1",
+        "support": "standard",
+        "provenance_verified": true,
+        "threshold_met": true,
+        "status": "FIXED_PACKAGE",
+        "reason": "Installed package version compared to Canonical USN; apt metadata corroborates an official Ubuntu repository"
+      }
+    }
+  ],
+  "cli": null,
+  "web_processes": [
+    {
+      "pid": 1234,
+      "kind": "fpm",
+      "branch": "8.3",
+      "binary": "/usr/sbin/php-fpm8.3",
+      "binary_state": "CURRENT_BINARY",
+      "package_owner_verified": true,
+      "package": "php8.3-fpm",
+      "assessment": "FIXED_RUNTIME"
+    }
+  ],
+  "overall": "FIXED_RUNTIME",
+  "limitations": [
+    "This is advisory-backed version and runtime inventory, not exploit-based verification.",
+    "A matching Ubuntu apt origin corroborates provenance but does not cryptographically attest installed bytes.",
+    "An unobserved or inaccessible runtime is UNKNOWN, never automatically FIXED."
+  ],
+  "example_only": true
+}
