@@ -1,0 +1,2 @@
+[Wed Oct 21 12:02:00 2026] PHP Fatal error: Allowed memory size of 134217728 bytes exhausted
+[Wed Oct 21 12:02:00 2026] apache2: child 456 exited on signal 11 (SIGSEGV)
